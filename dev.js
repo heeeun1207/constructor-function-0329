@@ -19,4 +19,36 @@ console.log(heeny.id);
 console.log(heeny.name);
 console.log(heeny.password);
 console.log(heeny.email);
-heeny.speck();
+heeny.speck();  // heen님 회원가입 하시겟습니까 ? 
+
+//! getter setter 
+class User{
+  constructor(id, nickName, password, age){
+    this.id =id;
+    this.nickName=nickName;
+    this.password=password;
+    this.age = age ;
+  }
+  get age(){
+    return this._age;
+  }
+  set age(value){
+    // if(value<0){
+    //   throw Error('나이를 0 이상으로 설정해 ');
+    // }
+    this._age = value < 0 ? 0 :value;
+  }
+}
+const user1 = new User('heen','heeny',1234,-1);
+console.log(user1.age);  // 0 출력 
+
+//!  Public Field & Private Field 
+class Experiment {
+  publicField = 2;
+  #privateField =0;
+}
+const experiment = new Experiment();
+console.log(experiment.publicField);  // 2 
+console.log(experiment.privateField); // undefined
+
+
